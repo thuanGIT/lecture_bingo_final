@@ -36,17 +36,18 @@ class MyTimerState extends State<MyTimer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Center(
-              child: Text('${widget.title}',
-                  style: TextStyle(fontSize: 20, color: Colors.white))),
-          backgroundColor: Colors.blueGrey[900],
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              CircularCountDownTimer(
+      appBar: AppBar(
+        title: Center(
+            child: Text('${widget.title}',
+                style: TextStyle(fontSize: 20, color: Colors.white))),
+        backgroundColor: Colors.blueGrey[900],
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(
+              child: CircularCountDownTimer(
                 // Countdown duration in Seconds
                 duration: widget.breakTime,
 
@@ -84,62 +85,68 @@ class MyTimerState extends State<MyTimer> {
                   Navigator.pop(context);
                 },
               ),
-              Center(
-                  child: Row(
-                children: <Widget>[
-                  ImageButton(
-                    children: <Widget>[],
-                    width: 100,
-                    height: 100,
-                    paddingTop: 5,
-                    pressedImage: Image.asset("images/eye2.png"),
-                    unpressedImage: Image.asset("images/eye.png"),
-                    onTap: () {
-                      print('test');
-                    },
-                  ),
-                  ImageButton(
-                    children: <Widget>[],
-                    width: 100,
-                    height: 100,
-                    paddingTop: 5,
-                    pressedImage: Image.asset("images/cup2.png"),
-                    unpressedImage: Image.asset("images/cup.png"),
-                    onTap: () {
-                      print('test');
-                    },
-                  )
-                ],
-              )),
-              Center(
-                  child: Row(
-                children: <Widget>[
-                  ImageButton(
-                    children: <Widget>[],
-                    width: 100,
-                    height: 100,
-                    paddingTop: 5,
-                    pressedImage: Image.asset("images/chat2.png"),
-                    unpressedImage: Image.asset("images/chat.png"),
-                    onTap: () {
-                      print('test');
-                    },
-                  ),
-                  ImageButton(
-                    children: <Widget>[],
-                    width: 100,
-                    height: 100,
-                    paddingTop: 5,
-                    pressedImage: Image.asset("images/fruit2.png"),
-                    unpressedImage: Image.asset("images/fruit.png"),
-                    onTap: () {
-                      print('test');
-                    },
-                  )
-                ],
-              ))
-            ],
-          ),
-        ));
+            ),
+            Flexible(
+              child: Center(
+                child: Container(
+                    child: GridView.count(
+                  primary: false,
+                  padding: const EdgeInsets.all(10),
+                  crossAxisSpacing: 5,
+                  mainAxisSpacing: 5,
+                  crossAxisCount: 2,
+                  children: <Widget>[
+                    ImageButton(
+                      children: <Widget>[],
+                      width: 100,
+                      height: 100,
+                      paddingTop: 5,
+                      pressedImage: Image.asset("images/eye2.png"),
+                      unpressedImage: Image.asset("images/eye.png"),
+                      onTap: () {
+                        print('test');
+                      },
+                    ),
+                    ImageButton(
+                      children: <Widget>[],
+                      width: 100,
+                      height: 100,
+                      paddingTop: 5,
+                      pressedImage: Image.asset("images/cup2.png"),
+                      unpressedImage: Image.asset("images/cup.png"),
+                      onTap: () {
+                        print('test');
+                      },
+                    ),
+                    ImageButton(
+                      children: <Widget>[],
+                      width: 100,
+                      height: 100,
+                      paddingTop: 5,
+                      pressedImage: Image.asset("images/chat2.png"),
+                      unpressedImage: Image.asset("images/chat.png"),
+                      onTap: () {
+                        print('test');
+                      },
+                    ),
+                    ImageButton(
+                      children: <Widget>[],
+                      width: 100,
+                      height: 100,
+                      paddingTop: 5,
+                      pressedImage: Image.asset("images/fruit2.png"),
+                      unpressedImage: Image.asset("images/fruit.png"),
+                      onTap: () {
+                        print('test');
+                      },
+                    )
+                  ],
+                )),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import './subject.dart';
-import './page_3.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,7 +9,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Welcome to Flutter',
-      theme: ThemeData(fontFamily: 'Comic Sans MS'),
+      theme: ThemeData(
+        fontFamily: 'Comic Sans MS',
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
       home: FirstPage(),
     );
   }
